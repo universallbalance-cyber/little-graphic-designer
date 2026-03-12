@@ -234,6 +234,7 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
+	base: '/little-graphic-designer/', // <--- ADD THIS LINE HERE
 	customLogger: logger,
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin(), iframeRouteRestorationPlugin(), selectionModePlugin()] : []),
