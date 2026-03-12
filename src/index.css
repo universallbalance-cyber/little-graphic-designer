@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow-x: hidden;	/* 🚫 no horizontal scrollbars */
+	overflow-y: auto;
+	/* ✅ allow vertical scroll if needed */
+	-webkit-overflow-scrolling: touch;
+}
+
+#root {
+	width: 100%;
+	/* avoids horizontal overflow */
+	min-height: 100vh;
+	/* fills screen vertically */
+}
+
+body {
+  @apply bg-indigo-600;
+  font-family: 'Fredoka', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.font-titan {
+  font-family: 'Titan One', cursive;
+}
+
+.mystical-glow {
+  animation: mysticalPulse 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.mystical-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.4) 0%, transparent 1%),
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.3) 0%, transparent 1.5%),
+        radial-gradient(acircle at 15% 85%, rgba(255, 255, 255, 0.3) 0%, transparent-v 1.5%),
+        radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 1%);
+    background-size: 100px 100px;
+    animation: sparkle 5s linear infinite;
+    pointer-events: none;
+}
+
+
+@keyframes sparkle {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+@keyframes mysticalPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 5px rgba(192, 132, 252, 0.6));
+  }
+}
+
+.affirmation-text {
+  animation: floatIn 1s ease-out;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* For hiding scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.bg-speckles {
+  background-image:
+    radial-gradient(circle at 10% 20%, #facc15 1px, transparent 1px),
+    radial-gradient(circle at 80% 30%, #f87171 1px, transparent 1px),
+    radial-gradient(circle at 30% 90%, #60a5fa 1px, transparent 1px),
+    radial-gradient(circle at 90% 85%, #facc15 1px, transparent 1px);
+  background-size: 100px 100px;
+}

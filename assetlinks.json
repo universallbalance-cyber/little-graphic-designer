@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.hostingersite.lightsteelblue_mallard_901470.twa",
+    "sha256_cert_fingerprints": [
+      "31:82:F0:96:CD:6B:27:AA:05:1A:86:0D:CE:88:47:B0:2A:0C:B0:DE:19:70:A3:09:AA:2B:E3:09:54:77:27:0C"
+    ]
+  }
+}]

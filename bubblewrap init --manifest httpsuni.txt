@@ -1,0 +1,9 @@
+bubblewrap init --manifest https://universallbalance-cyber.github.io/site.webmanifest
+
+keystore password - inkgen123
+
+SHA256: C5:CF:6E:D5:91:F7:5A:B2:25:7B:79:2D:28:61:BB:48:CF:73:A2:41:DF:ED:AD:00:A2:8F:6E:99:3B:96:8E:2D
+
+
+
+keystore for little graphic designer - LGD123
