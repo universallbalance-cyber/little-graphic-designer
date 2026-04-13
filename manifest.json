@@ -1,7 +1,7 @@
 {
   "name": "Little Graphic Designer",
   "short_name": "Designer",
-  "description": "A fun, relaxing digital coloring book for artists and creators of all ages.",
+  "description": "A fun, intuitive graphic design tool for creators of all ages.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
