@@ -1,6 +1,6 @@
 {
   "name": "Little Graphic Designer",
-  "short_name": "Graphic Designer",
+  "short_name": "Little Graphic Designer",
   "description": "A fun, intuitive graphic design tool for creators of all ages.",
   "package_name": "com.littlegraphicdesigner.app",
   "start_url": "/little-graphic-designer/",
