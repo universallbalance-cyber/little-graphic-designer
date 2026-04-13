@@ -1,46 +1,25 @@
 {
   "name": "Little Graphic Designer",
-  "short_name": "Graphic Designer",
+  "short_name": "Designer",
   "description": "A fun, intuitive graphic design tool for creators of all ages.",
-  "package_name": "com.littlegraphicdesigner.app",
-  "start_url": "/little-graphic-designer/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "scope": "/little-graphic-designer/",
+  "orientation": "portrait",
   "theme_color": "#6366f1",
   "background_color": "#ffffff",
-  "categories": [
-    "productivity",
-    "graphics"
-  ],
   "icons": [
     {
-      "src": "/little-graphic-designer/icon-192.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/little-graphic-designer/logo-512.png",
+      "src": "logo-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/little-graphic-designer/logo-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Home Screen"
-    },
-    {
-      "src": "/little-graphic-designer/logo-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Mobile View"
+      "purpose": "any"
     }
   ]
 }
