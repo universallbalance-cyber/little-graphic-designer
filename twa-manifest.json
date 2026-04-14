@@ -14,7 +14,7 @@
   "enableNotifications": true,
   "startUrl": "/little-graphic-designer/",
   "iconUrl": "https://universallbalance-cyber.github.io/little-graphic-designer/logo-512.png",
-  "maskableIconUrl": "https://universallbalance-cyber.github.io/little-graphic-designer/web-app-manifest-192x192.png"
+  "maskableIconUrl": "https://universallbalance-cyber.github.io/little-graphic-designer/web-app-manifest-192x192.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "C:\\Users\\mpod\\Documents\\little-graphic-designer\\android.keystore",
