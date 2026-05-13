@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from 'react';
+import React, { forwardRef, useEffect, useRef, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 export const coloringPagesData = {
@@ -46,6 +46,41 @@ export const coloringPagesData = {
 
 const PageSelector = forwardRef(({ selectedCategory, currentPage, onPageSelect }, ref) => {
   const pages = coloringPagesData[selectedCategory] || [];
+  const scrollRef = useRef(null);
+  const [scales, setScales] = useState({});
+
+  const updateScales = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container || pages.length === 0) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+    const newScales = {};
+
+    pages.forEach((page) => {
+      const el = document.getElementById(`thumb-${page.id}`);
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const itemCenter = rect.left + rect.width / 2;
+      const distance = Math.abs(containerCenter - itemCenter);
+      const maxDist = containerRect.width / 2;
+      const t = Math.min(distance / maxDist, 1);
+      newScales[page.id] = 0.75 + 0.45 * (1 - t);
+    });
+
+    setScales(newScales);
+  }, [pages]);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    container.addEventListener('scroll', updateScales, { passive: true });
+    const timer = setTimeout(updateScales, 150);
+    return () => {
+      container.removeEventListener('scroll', updateScales);
+      clearTimeout(timer);
+    };
+  }, [updateScales]);
 
   useEffect(() => {
     if (!currentPage?.id) return;
@@ -53,32 +88,46 @@ const PageSelector = forwardRef(({ selectedCategory, currentPage, onPageSelect }
     thumbElement?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }, [currentPage]);
 
+  const setRefs = useCallback((el) => {
+    scrollRef.current = el;
+    if (typeof ref === 'function') ref(el);
+    else if (ref) ref.current = el;
+  }, [ref]);
+
   return (
-    <div ref={ref} className="flex-1 w-full overflow-x-auto no-scrollbar">
-      <div className="flex gap-3 pb-2 px-1">
+    <div ref={setRefs} className="flex-1 w-full overflow-x-auto no-scrollbar py-4">
+      <div className="flex gap-3 pb-2 px-4 items-center">
         {pages.map((page, index) => (
-          <motion.button
+          <div
             key={page.id}
-            id={`thumb-${page.id}`} // Added id for scrolling
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => onPageSelect({ ...page, category: selectedCategory })}
-            className={`
-              flex-shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden
-              border-4 transition-all shadow-lg
-              ${currentPage?.id === page.id 
-                ? 'border-purple-500 shadow-purple-500/50 scale-105' 
-                : 'border-white hover:border-purple-300'
-              }
-            `}
+            id={`thumb-${page.id}`}
+            style={{
+              transform: `scale(${scales[page.id] ?? 1})`,
+              transition: 'transform 0.2s ease',
+              flexShrink: 0,
+            }}
           >
-            <div className="w-full h-full bg-white flex items-center justify-center p-1">
-               <img src={page.imageUrl} alt={page.name} className="max-w-full max-h-full object-contain" />
-            </div>
-          </motion.button>
+            <motion.button
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => onPageSelect({ ...page, category: selectedCategory })}
+              className={`
+                w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden
+                border-4 transition-all shadow-lg block
+                ${currentPage?.id === page.id
+                  ? 'border-purple-500 shadow-purple-500/50'
+                  : 'border-white hover:border-purple-300'
+                }
+              `}
+            >
+              <div className="w-full h-full bg-white flex items-center justify-center p-1">
+                <img src={page.imageUrl} alt={page.name} className="max-w-full max-h-full object-contain" />
+              </div>
+            </motion.button>
+          </div>
         ))}
       </div>
     </div>

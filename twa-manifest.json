@@ -13,8 +13,8 @@
   "backgroundColor": "#FFFFFF",
   "enableNotifications": true,
   "startUrl": "/little-graphic-designer/",
-  "iconUrl": "https://horizons-cdn.hostinger.com/17d0a2ba-3464-49cc-a637-f2d389fa316f/ef3952e86fa48be63611f8068fbfa3cb.png",
-  "maskableIconUrl": "https://horizons-cdn.hostinger.com/17d0a2ba-3464-49cc-a637-f2d389fa316f/ab2e0f0a1c35367f02453c0b933d23a9.png",
+  "iconUrl": "https://universallbalance-cyber.github.io/little-graphic-designer/logo-512.png",
+  "maskableIconUrl": "https://universallbalance-cyber.github.io/little-graphic-designer/icon-192.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "C:\\Users\\mpod\\Documents\\little-graphic-designer\\android.keystore",
