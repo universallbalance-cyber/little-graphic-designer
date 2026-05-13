@@ -240,10 +240,11 @@ function App() {
                         selectedTool={selectedTool} 
                         selectedColor={selectedColor} 
                         brushSize={selectedTool === 'brush' ? brushSize : eraserSize}
-                        zoom={zoom} 
-                        pan={pan} 
-                        setPan={setPan} 
-                        mysticalMode={mysticalMode} 
+                        zoom={zoom}
+                        setZoom={setZoom}
+                        pan={pan}
+                        setPan={setPan}
+                        mysticalMode={mysticalMode}
                         saveState={saveState}
                         undoManager={undoManager}
                         selectedFont={selectedFont}

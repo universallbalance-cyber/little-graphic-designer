@@ -11,6 +11,7 @@ const ColoringCanvas = ({
   selectedColor,
   brushSize,
   zoom,
+  setZoom,
   pan,
   setPan,
   mysticalMode,
@@ -216,6 +217,12 @@ const ColoringCanvas = ({
     toolManager.endTool();
   };
   
+  const handleWheel = (e) => {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.1 : 0.1;
+    setZoom(prev => Math.min(Math.max(prev + delta, 0.5), 3));
+  };
+
   const getCursor = () => {
     if (isPanning) return 'grabbing';
     if (selectedTool === 'pan') return 'grab';
@@ -228,6 +235,7 @@ const ColoringCanvas = ({
     <div
       ref={containerRef}
       className="w-full h-full flex items-center justify-center relative overflow-hidden bg-purple-200/50 p-4 touch-none"
+      onWheel={handleWheel}
     >
       {!currentPage ? (
         <motion.div
