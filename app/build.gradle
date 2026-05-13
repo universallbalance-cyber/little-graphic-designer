@@ -21,18 +21,18 @@ plugins {
 }
 
 def twaManifest = [
-    applicationId: 'com.hostingersite.lightsteelblue_mallard_901470.twa',
-    hostName: 'lightsteelblue-mallard-901470.hostingersite.com', // The domain being opened in the TWA.
-    launchUrl: '/', // The start path for the TWA. Must be relative to the domain.
+    applicationId: 'com.littlegraphicdesigner.app',
+    hostName: 'universallbalance-cyber.github.io', // The domain being opened in the TWA.
+    launchUrl: '/little-graphic-designer/', // The start path for the TWA. Must be relative to the domain.
     name: 'Little Graphic Designer', // The application name.
-    launcherName: 'LGD', // The name shown on the Android Launcher.
-    themeColor: '#1A1A2E', // The color used for the status bar.
+    launcherName: 'LG Designer', // The name shown on the Android Launcher.
+    themeColor: '#6366F1', // The color used for the status bar.
     themeColorDark: '#000000', // The color used for the dark status bar.
     navigationColor: '#000000', // The color used for the navigation bar.
     navigationColorDark: '#000000', // The color used for the dark navbar.
     navigationDividerColor: '#000000', // The navbar divider color.
     navigationDividerColorDark: '#000000', // The dark navbar divider color.
-    backgroundColor: '#1A1A2E', // The color used for the splash screen background.
+    backgroundColor: '#FFFFFF', // The color used for the splash screen background.
     enableNotifications: true, // Set to true to enable notification delegation.
     // Every shortcut must include the following fields:
     // - name: String that will show up in the shortcut.
@@ -47,18 +47,18 @@ def twaManifest = [
     // 'customtabs' and 'webview'.
     fallbackType: 'customtabs',
     enableSiteSettingsShortcut: 'true',
-    orientation: 'any',
+    orientation: 'portrait',
 ]
 
 android {
     compileSdkVersion 36
-    namespace "com.hostingersite.lightsteelblue_mallard_901470.twa"
+    namespace "com.littlegraphicdesigner.app"
     defaultConfig {
-        applicationId "com.hostingersite.lightsteelblue_mallard_901470.twa"
+        applicationId "com.littlegraphicdesigner.app"
         minSdkVersion 21
         targetSdkVersion 35
         versionCode 3
-        versionName "3"
+        versionName "2"
 
         // The name for the application
         resValue "string", "appName", twaManifest.name
@@ -76,12 +76,12 @@ android {
             // The URL the Web Manifest for the Progressive Web App that the TWA points to. This
             // is used by Chrome OS and Meta Quest to open the Web version of the PWA instead of
             // the TWA, as it will probably give a better user experience for non-mobile devices.
-            resValue "string", "webManifestUrl", 'https://lightsteelblue-mallard-901470.hostingersite.com/manifest.json'
+            resValue "string", "webManifestUrl", 'https://universallbalance-cyber.github.io/little-graphic-designer/manifest.json'
         
 
         
             // This is used by Meta Quest.
-            resValue "string", "fullScopeUrl", 'https://lightsteelblue-mallard-901470.hostingersite.com/'
+            resValue "string", "fullScopeUrl", 'https://universallbalance-cyber.github.io/little-graphic-designer/'
         
 
         
